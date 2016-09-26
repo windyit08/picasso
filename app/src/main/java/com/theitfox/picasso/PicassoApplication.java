@@ -1,4 +1,4 @@
-package com.theitfox.picasso.presentation.common;
+package com.theitfox.picasso;
 
 import android.app.Application;
 import android.content.Context;
