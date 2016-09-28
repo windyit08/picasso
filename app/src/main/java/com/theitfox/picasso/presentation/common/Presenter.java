@@ -1,14 +1,29 @@
 package com.theitfox.picasso.presentation.common;
 
+import rx.subscriptions.CompositeSubscription;
+
 /**
  * Created by btquanto on 26/09/2016.
  */
 
-public interface Presenter<T extends BaseView> {
+public abstract class Presenter<T extends BaseView> {
+    protected T view;
+    protected CompositeSubscription subscription;
 
-    void attachView(T view);
+    public Presenter() {
+        this.subscription = new CompositeSubscription();
+    }
 
-    void detachView();
+    public void attachView(T view) {
+        this.view = view;
+    }
 
-    boolean isViewAttached();
+    public void detachView() {
+        this.view = null;
+        this.subscription.unsubscribe();
+    }
+
+    protected boolean isViewAttached() {
+        return this.view != null;
+    }
 }
