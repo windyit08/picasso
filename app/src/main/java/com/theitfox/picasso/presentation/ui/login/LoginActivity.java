@@ -18,7 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_single_fragment);
         FragmentManager fm = getSupportFragmentManager();
         Fragment loginFragment = fm.findFragmentByTag(TAG_LOGIN_FRAGMENT);
         if (loginFragment == null) {

@@ -1,6 +1,7 @@
 package com.theitfox.picasso.presentation.ui.login.views;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.theitfox.picasso.R;
 import com.theitfox.picasso.data.gson.LoginResponse;
 import com.theitfox.picasso.data.gson.RegisterResponse;
+import com.theitfox.picasso.presentation.ui.expandablelistview.ExpandableListViewActivity;
 import com.theitfox.picasso.presentation.ui.login.presenters.LoginPresenterImpl;
 import com.theitfox.picasso.presentation.ui.login.presenters.abstracts.LoginPresenter;
 import com.theitfox.picasso.presentation.ui.login.views.abstracts.LoginView;
@@ -68,6 +70,9 @@ public class LoginFragment extends Fragment implements LoginView, View.OnClickLi
 
     @Override
     public void onLoginSuccess(LoginResponse response) {
+        Intent intent = new Intent(getContext(), ExpandableListViewActivity.class);
+        getActivity().startActivity(intent);
+        getActivity().finish();
         Toast.makeText(getContext(), "Login Successful!", Toast.LENGTH_SHORT).show();
     }
 
